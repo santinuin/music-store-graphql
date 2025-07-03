@@ -1,4 +1,4 @@
-package com.santinuin.musicstore.music_store_graphql.domain.service;
+package com.santinuin.musicstore.music_store_graphql.application.usecases;
 
 import com.santinuin.musicstore.music_store_graphql.application.dto.output.MarcaDTO;
 

@@ -1,4 +1,4 @@
-package com.santinuin.musicstore.music_store_graphql.application.usecases;
+package com.santinuin.musicstore.music_store_graphql.application.usecases.impl;
 
 import com.santinuin.musicstore.music_store_graphql.application.dto.InstrumentoCreateDTO;
 import com.santinuin.musicstore.music_store_graphql.application.dto.output.InstrumentoDTO;
@@ -10,7 +10,7 @@ import com.santinuin.musicstore.music_store_graphql.domain.repository.CategoriaR
 import com.santinuin.musicstore.music_store_graphql.domain.repository.InstrumentoRepository;
 import com.santinuin.musicstore.music_store_graphql.domain.repository.MarcaRepository;
 import com.santinuin.musicstore.music_store_graphql.domain.repository.ResenaRepository;
-import com.santinuin.musicstore.music_store_graphql.domain.service.InstrumentoService;
+import com.santinuin.musicstore.music_store_graphql.application.usecases.InstrumentoService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

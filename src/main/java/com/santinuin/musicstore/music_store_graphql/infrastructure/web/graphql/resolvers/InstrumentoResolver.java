@@ -3,7 +3,7 @@ package com.santinuin.musicstore.music_store_graphql.infrastructure.web.graphql.
 import com.santinuin.musicstore.music_store_graphql.application.dto.InstrumentoCreateDTO;
 import com.santinuin.musicstore.music_store_graphql.application.dto.output.InstrumentoDTO;
 import com.santinuin.musicstore.music_store_graphql.application.dto.input.InstrumentoInput;
-import com.santinuin.musicstore.music_store_graphql.domain.service.InstrumentoService;
+import com.santinuin.musicstore.music_store_graphql.application.usecases.InstrumentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
