@@ -1,11 +1,13 @@
 type Query {
     # Consultas de instrumentos
-    instrumentos: [Instrumento!]!
+    instrumentos(
+        tipo: String
+        marcaId: ID
+        categoriaId: ID
+        precioMin: Float
+        precioMax: Float
+    ): [Instrumento!]!
     instrumento(id: ID!): Instrumento
-    instrumentosPorTipo(tipo: String!): [Instrumento!]!
-    instrumentosPorPrecio(minimo: Float, maximo: Float): [Instrumento!]!
-    instrumentosDisponibles: [Instrumento!]!
-    buscarInstrumentos(nombre: String!): [Instrumento!]!
 
     # Consultas de categorías
     categorias: [Categoria!]!
@@ -24,9 +26,9 @@ type Query {
 
 type Mutation {
     # Mutaciones de instrumentos
-    crearInstrumento(input: InstrumentoInput!): Instrumento!
-    actualizarInstrumento(id: ID!, input: InstrumentoInput!): Instrumento!
-    eliminarInstrumento(id: ID!): Boolean!
+    createInstrumento(input: InstrumentoInput!): Instrumento!
+    updateInstrumento(id: ID!, input: InstrumentoInput!): Instrumento
+    deleteInstrumento(id: ID!): Boolean!
 
     # Mutaciones de categorías
     crearCategoria(input: CategoriaInput!): Categoria!
@@ -49,27 +51,19 @@ type Instrumento {
     precio: Float
     descripcion: String
     stock: Int
-    categoria: Categoria
-    marca: Marca
-    resenas: [Resena!]!
     promedioCalificacion: Float
-    totalResenas: Int
 }
 
 type Categoria {
     id: ID!
     nombre: String!
     descripcion: String
-    instrumentos: [Instrumento!]!
-    totalInstrumentos: Int
 }
 
 type Marca {
     id: ID!
     nombre: String!
     paisOrigen: String
-    instrumentos: [Instrumento!]!
-    totalInstrumentos: Int
 }
 
 type Resena {
@@ -77,18 +71,18 @@ type Resena {
     usuario: String!
     calificacion: Int!
     comentario: String
-    instrumento: Instrumento!
+    instrumentoId: ID!
 }
 
 # Inputs para mutaciones
 input InstrumentoInput {
     nombre: String!
-    tipo: String
-    precio: Float
+    tipo: String!
+    precio: Float!
     descripcion: String
-    stock: Int
-    categoriaId: ID
-    marcaId: ID
+    stock: Int!
+    categoriaId: ID!
+    marcaId: ID!
 }
 
 input CategoriaInput {
